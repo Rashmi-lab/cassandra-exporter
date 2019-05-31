@@ -39,7 +39,7 @@ public class InternalGossiperMBeanMetricFamilyCollector extends GossiperMBeanMet
         final Set<InetAddressAndPort> endpoints = gossiper.getEndpoints();
 
         for (final InetAddressAndPort endpoint : endpoints) {
-            final EndpointState state = gossiper.getEndpointStateForEndpoint(endpoint);
+            final EndpointState state = gossiper.getEndpointStateForEndpoint(endpoint); //todo: test if this is actually slower, as we now have to jmx call for each endpoint
 
             final Labels labels = metadataFactory.endpointLabels(endpoint);
 
